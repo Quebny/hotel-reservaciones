@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class UserController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo "Index de Usuarios";
+        $users = User::select('id', 'name')->get();
+        return view('users.index',compact('users'));
     }
 
     /**
@@ -46,7 +49,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        $user = User::find($id);
+        return view('users.update',compact('user'));
     }
 
     /**
