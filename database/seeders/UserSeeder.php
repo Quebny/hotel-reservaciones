@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\User;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -18,7 +20,7 @@ class UserSeeder extends Seeder
         $user -> name = 'Kevin';
         $user -> lastname = 'Lizárraga';
         $user -> email = 'example@gmail.com';
-        $user -> password = 'password';
+        $user -> password = bcrypt('password');
 
         $user -> save();
     }
